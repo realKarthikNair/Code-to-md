@@ -1,8 +1,7 @@
-# **Code isn't fully made yet! So Don't blame me for the disappearance of moon if you run it!!**
-
-Code-to-md
-
+# **Code-to-md**
 *inspired by [code_to_md](https://github.com/Dinex-dev/code_to_md) by @Dinex-dev*
+
+## **Code isn't fully made yet! So Don't blame me for the disappearance of moon if you run it!!**
 
 ### So What is it?
 
@@ -18,7 +17,7 @@ and so on with next file and so on and so on and.... (rip Engish)
 
 ~~Because I can, Python is easy and posting on Github is free~~
 
-To automate stuff like [this](https://github.com/realKarthikNair/Learning-C-Lang/blob/main/basics/basics.md) 
+To automate stuff like [this](https://github.com/realKarthikNair/Learning-C-Lang/blob/main/basics/basics.md), for example.
 
 ### Why not use just something like [code_to_md](https://github.com/Dinex-dev/code_to_md) instead of making the same thing again from scratch in python?
 
