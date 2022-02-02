@@ -1,4 +1,4 @@
-# **Code isn't fully made yet! Don't blame me for the disappearance of moon if you run it!!**
+# **Code isn't fully made yet! So Don't blame me for the disappearance of moon if you run it!!**
 
 Code-to-md
 
