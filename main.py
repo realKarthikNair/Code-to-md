@@ -24,7 +24,7 @@ def getpath(prompt):
         Choosing {default} as the path...''')
         return default
 
-# read files and save as md file
+# read files and save as md file 
 def generate_md(input_path, output_path, language):
     input_prompt=f'''Enter directory path where files exist
     Skipping would choose {default}'''
