@@ -49,7 +49,7 @@ def generate_md():
     ext=input('''Enter file extension to be considered (.c or .py)
     Enter here >  ''')
     files=[]
-    for i in os.listdir(input_path):
+    for i in sorted(os.listdir(input_path)):
         if i.endswith(ext):
             files.append(i)
     
@@ -78,7 +78,7 @@ def generate_md():
     
 
     #create md file
-    md_file=open(os.path.join(output_path,output_filename), "a+"); sno=1
+    md_file=open(os.path.join(output_path,output_filename), "w"); sno=1
     for i in files:
         path=os.path.join(input_path, i)
         file=open(path, 'r')
@@ -99,7 +99,7 @@ def generate_md():
                             md_file.write(title); j+=1
                         else: md_file.write(title); j+=1
                     else:
-                        md_file.write(date[j])
+                        md_file.write(f"\t{data[j]}"); j+=1
             elif ext=='.c':
                 flag=False; flag1=1
                 while True:
@@ -113,8 +113,8 @@ def generate_md():
                         if data[j][-3:-1]=="*/":
                             md_file.write(title); j+=1
                         else: md_file.write(title); j+=1
-                    else: 
-                        md_file.write(date[j])
+                    else:
+                        md_file.write(f"\t{data[j]}"); j+=1
         except:
             continue
     return True
