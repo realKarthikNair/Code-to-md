@@ -1,5 +1,3 @@
-# CODE IS NOT FUNCTIONAL YET !
-
 import os
 
 # find type of OS and return default user directory
