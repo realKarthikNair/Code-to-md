@@ -16,8 +16,6 @@ and so on with next file and so on and so on and.... (RIP Engish)
 
 ### Why?
 
-~~Because I can, Python is easy and posting on Github is free~~
-
 **To automate stuff like [this](https://github.com/realKarthikNair/Learning-C-Lang/blob/main/basics/basics.md), for example.**
 
 ### How to use (incase you didn't figure out)
