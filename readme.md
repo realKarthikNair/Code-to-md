@@ -20,6 +20,20 @@ and so on with next file and so on and so on and.... (RIP Engish)
 
 **To automate stuff like [this](https://github.com/realKarthikNair/Learning-C-Lang/blob/main/basics/basics.md), for example.**
 
+### How to use (incase you didn't figure out)
+
+## Method 1 (for terminal lovers <3)
+
+    git clone https://github.com/realKarthikNair/Code-to-md
+    cd Code-to-md
+    python3 main.py
+
+## Method 2 (for others)
+
+1. Download [this](https://github.com/realKarthikNair/Code-to-md/archive/refs/heads/main.zip)
+2. Unzip it and go to the unzipped folder
+3. Run the main.py file
+
 ### Features
 
 - Supports 2 Languages (Python and C) + can be extended for any other language with a few lines of code
