@@ -83,44 +83,78 @@ def generate_md():
         path=os.path.join(input_path, i)
         file=open(path, 'r')
         data= file.readlines(); j=0
-        title=f"### {data[j]}"; line_1=f"### {sno}. {data[j]}"
         try:
+            # if ind==sno:sno+=1
+            # ind=sno
             if ext=='.py':
                 flag=False; flag1=1
                 while True:
+                    title=f"### {data[j]}"; line_1=f"### {sno}. {data[j]}"
                     if data[0][0]=='#' and flag1==1:
-                        md_file.write(line_1[1:]); j+=1; sno+=1; flag1=0
+                        md_file.write(line_1)
+                        j+=1
+                        sno+=1
+                        flag1=0
                     elif data[0][0:3] in ['"""', "'''" ] and flag1==1:
-                        md_file.write(line_1[3:]); j+=1; sno+=1; flag=True; flag1=0
-                    elif data[j][0]=='#':
-                        md_file.write(title); j+=1
+                        md_file.write(line_1)
+                        j+=1
+                        flag=True
+                        flag1=0
+                        sno+=1
+                    elif j==0 and flag1==1:
+                        md_file.write(f"### {sno}.\n")
+                        sno+=1
+                        flag1=0
+                        j+=1
                     elif flag==True:
                         if data[j][-4:-1] in ['"""', "'''" ]:
-                            md_file.write(title); j+=1
-                        else: md_file.write(f"\t{data[j]}"); j+=1
+                            md_file.write(title)
+                            j+=1
+                            flag=False
+                        else:
+                            md_file.write(title)
+                            j+=1
                     else:
-                        md_file.write(f"\t{data[j]}"); j+=1
+                        md_file.write(f"\t{data[j]}")
+                        j+=1
             elif ext=='.c':
                 flag=False; flag1=1
+                rt=1
                 while True:
+                    title=f"### {data[j]}"; line_1=f"### {sno}. {data[j]}"
                     if data[0][0:2]=='//' and flag1==1:
-                        md_file.write(line_1[2:]);j+=1; sno+=1; flag1=0
+                        md_file.write(line_1);j+=1; sno+=1
+                        flag1=0
                     elif data[0][0:2]=="/*" and flag1==1:
-                        md_file.write(line_1[2:]);j+=1; sno+=1; flag=True; flag1=0
-                    elif data[j][0:2]=='//':
-                        md_file.write(title); j+=1
+                        md_file.write(line_1)
+                        j+=1
+                        flag=True
+                        flag1=0
+                        sno+=1
+                    elif j==0 and flag1==1:
+                        md_file.write(f"### {sno}.\n")
+                        sno+=1
+                        flag1=0
+                        j+=1
                     elif flag==True:
                         if data[j][-3:-1]=="*/":
-                            md_file.write(title); j+=1
-                        else: md_file.write(f"\t{data[j]}"); j+=1
+                            md_file.write(title)
+                            j+=1
+                            flag=False
+                        else:
+                            md_file.write(title)
+                            j+=1
                     else:
-                        md_file.write(f"\t{data[j]}"); j+=1
+                        md_file.write(f"\t{data[j]}")
+                        j+=1
         except:
+            md_file.write("\n\n")
             continue
-    return True
-
-
+    return f"{output_filename} saved successfully at {output_path} !"
     
 stats=generate_md()
 
+print(stats)
+
+# done
 
