@@ -1,6 +1,6 @@
 # CODE IS NOT FUNCTIONAL YET !
 
-import os, re
+import os
 
 # find type of OS and return default user directory
 def default_path(platform):
