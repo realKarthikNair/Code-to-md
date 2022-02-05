@@ -1,3 +1,4 @@
+#!/usr/bin/python3
 import os
 
 # find type of OS and return default user directory
