@@ -23,7 +23,7 @@ and so on with next file and so on and so on and.... (RIP Engish)
 
 ##### Method 1 (for terminal lovers <3)
 
-###### On Linux
+###### On Linux and MacOS (prolly on other unix derivatives too)
 
     git clone https://github.com/realKarthikNair/Code-to-md
     cd Code-to-md
