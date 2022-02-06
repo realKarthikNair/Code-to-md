@@ -27,7 +27,7 @@ and so on with next file and so on and so on and.... (RIP Engish)
 
     git clone https://github.com/realKarthikNair/Code-to-md
     cd Code-to-md
-    chmod +r 
+    chmod +x code-to-md.py
     ./code-to-md.py "<code-files-path>" "<extension>" "<md-file-destination>" "<md-filename>"
     # eg ./code-to-md.py "/home/karthik/karthik/Learning-C-Lang/While loops/programs" ".c" "/home/karthik/karthik/mdtest" "code.md"
 
