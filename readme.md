@@ -62,7 +62,7 @@ I haven't tested the code on Windows, so I am not sure if [passing arguments](#u
 ~~Because I suck at bash and python is love~~
 
 1. Bash isn't really cross-platform (e.g., Windows)
-2. The more 'features' you add on a bash script, god it looks so awful for normies like me to understand (I am a linux user but making and maintaining bash scripts isn't really my cup of tea so i can't make his existing project better on my own)
+2. You tell me, I will add 'm
 
 ### Okay so that's it: Enjoy!
 
