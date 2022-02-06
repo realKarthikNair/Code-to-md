@@ -1,4 +1,5 @@
 # **Code-to-md**
+
 *inspired by [code_to_md](https://github.com/Dinex-dev/code_to_md) by @Dinex-dev*
 
 ### So What is it?
@@ -8,7 +9,7 @@ all these files in the following format
 
     1. <first comment in file> as title 
     The rest as code block
-
+    
     2. <first comment in file> as title
     The rest as code block
 
@@ -22,9 +23,19 @@ and so on with next file and so on and so on and.... (RIP Engish)
 
 ##### Method 1 (for terminal lovers <3)
 
+###### On Linux
+
     git clone https://github.com/realKarthikNair/Code-to-md
     cd Code-to-md
-    python3 main.py
+    chmod +r 
+    ./code-to-md.py "<code-files-path>" "<extension>" "<md-file-destination>" "<md-filename>"
+    # eg ./code-to-md.py "/home/karthik/karthik/Learning-C-Lang/While loops/programs" ".c" "/home/karthik/karthik/mdtest" "code.md"
+
+###### On Windows
+
+    git clone https://github.com/realKarthikNair/Code-to-md
+    cd Code-to-md
+    python3 code-to-md.py
 
 ##### Method 2 (for others)
 
@@ -46,8 +57,7 @@ and so on with next file and so on and so on and.... (RIP Engish)
 
 ### Okay so that's it: Enjoy!
 
-
-### How to reach me? 
+### How to reach me?
 
 <p align="left">
     <a href="https://www.instagram.com/harry_kris_" alt="instagram">
@@ -61,4 +71,3 @@ and so on with next file and so on and so on and.... (RIP Engish)
 ### Incase you want to buy me a coffee...
 
 <a slign="left" href="https://coindrop.to/realkarthiknair" target="_blank"><img align="left" src="https://coindrop.to/embed-button.png" style="border-radius: 10px; height: 57px !important;width: 229px !important;" alt="Coindrop.to me"></img></a>
-
