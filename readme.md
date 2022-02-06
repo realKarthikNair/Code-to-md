@@ -55,7 +55,7 @@ I haven't tested the code on Windows, so I am not sure if [passing arguments](#u
 ### Features
 
 - Supports 2 Languages (Python and C) + can be extended for any other language with a few lines of code
-- Really helpful if you need to create something like [this](https://github.com/realKarthikNair/Learning-C-Lang/blob/main/basics/basics.md) frequently
+- Really helpful if you need to create something like [this](https://github.com/realKarthikNair/Learning-C-Lang/blob/main/Recursion/readme.md) frequently
 
 ### Why not use [code_to_md](https://github.com/Dinex-dev/code_to_md) itself instead of making the same thing again from scratch in python?
 
