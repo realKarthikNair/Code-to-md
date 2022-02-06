@@ -23,7 +23,7 @@ and so on with next file and so on and so on and.... (RIP Engish)
 
 ##### Method 1 (for terminal lovers <3)
 
-###### On Linux and MacOS (prolly on other unix derivatives too)
+###### 1. On Linux and MacOS (prolly on other unix derivatives too)
 
     git clone https://github.com/realKarthikNair/Code-to-md
     cd Code-to-md
@@ -35,7 +35,7 @@ The script actually has a CLI based user interface as well if you run as `./code
     ./code-to-md.py "<code-files-path>" "<extension>" "<md-file-destination>" "<md-filename>"
     # eg ./code-to-md.py "/home/karthik/karthik/Learning-C-Lang/While loops/programs" ".c" "/home/karthik/karthik/mdtest" "code.md"
 
-###### On Windows
+###### 2. On Windows
 
     git clone https://github.com/realKarthikNair/Code-to-md
     cd Code-to-md
