@@ -28,6 +28,10 @@ and so on with next file and so on and so on and.... (RIP Engish)
     git clone https://github.com/realKarthikNair/Code-to-md
     cd Code-to-md
     chmod +x code-to-md.py
+
+###### Usage
+The script actually has a CLI based user interface as well if you run as `./code-to-md.py` or `python3 code-to-md-py` but if you want to give the path as arguments, here is how:
+
     ./code-to-md.py "<code-files-path>" "<extension>" "<md-file-destination>" "<md-filename>"
     # eg ./code-to-md.py "/home/karthik/karthik/Learning-C-Lang/While loops/programs" ".c" "/home/karthik/karthik/mdtest" "code.md"
 
@@ -35,7 +39,12 @@ and so on with next file and so on and so on and.... (RIP Engish)
 
     git clone https://github.com/realKarthikNair/Code-to-md
     cd Code-to-md
-    python3 code-to-md.py
+    
+###### Usage (CLI based interface)
+
+    python code-to-md.py
+
+I haven't tested the code on Windows, so I am not sure if [passing arguments](#usage) works on the platform
 
 ##### Method 2 (for others)
 
