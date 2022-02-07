@@ -69,7 +69,7 @@ I haven't tested the code on Windows, so I am not sure if [passing arguments](#u
 ### How to reach me?
 
 <p align="left">
-    <a href="https://www.instagram.com/harry_kris_" alt="instagram">
+    <a href="https://www.instagram.com/karthiknair.sh" alt="instagram">
         <img src="https://img.shields.io/badge/Instagram-%F0%9F%91%A8%E2%80%8D%F0%9F%92%BB-yellowgreen" /></a>
     <a href="https://www.telegram.me/realkarthiknair" alt="Telegram">
         <img src="https://img.shields.io/badge/Telegram-%F0%9F%91%A8%E2%80%8D%F0%9F%92%BB-orange" /></a>
