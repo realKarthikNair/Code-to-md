@@ -77,10 +77,9 @@ def generate_md():
     for i in files:
         path=os.path.join(input_path, i)
         file=open(path, 'r')
-        data= file.readlines(); j=0
+        data= file.readlines();j=0; flag=False; first=True;
         try:
             if ext=='.py':
-                flag=False
                 while True:
                     title=f"### {data[j]}"; line_1=f"### {sno}. {data[j]}"
                     if data[0][0]=='#' and j==0:
@@ -96,15 +95,17 @@ def generate_md():
                         sno+=1
                     elif flag==True:
                         if data[j][-4:-1] in ['"""', "'''" ]:
-                            md_file.write(title)
                             flag=False
-                        else:
-                            md_file.write(title)
+                        md_file.write(title)
                     else:
-                        md_file.write(f"\t{data[j]}")
+                        if (first!=True) and (j!=(len(data)-1)): md_file.write(f"{data[j]}")
+                        elif first==True:
+                            md_file.write(f"```python\n{data[j]}")
+                            first=False
+                        else:
+                            md_file.write(f"{data[j]}\n```")
                     j+=1
             elif ext=='.c':
-                flag=False
                 while True:
                     title=f"### {data[j]}"; line_1=f"### {sno}. {data[j]}"
                     if data[0][0:2]=='//' and j==0:
@@ -119,12 +120,15 @@ def generate_md():
                         sno+=1
                     elif flag==True:
                         if data[j][-3:-1]=="*/":
-                            md_file.write(title)
                             flag=False
-                        else:
-                            md_file.write(title)
+                        md_file.write(title)
                     else:
-                        md_file.write(f"\t{data[j]}")
+                        if (first!=True) and (j!=(len(data)-1)): md_file.write(f"{data[j]}")
+                        elif first==True:
+                            md_file.write(f"```c\n{data[j]}")
+                            first=False
+                        else:
+                            md_file.write(f"{data[j]}\n```")      
                     j+=1
         except:
             md_file.write("\n\n")
