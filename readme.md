@@ -4,7 +4,7 @@
 
 ### So What is it?
 
-So you provide a folder with a bunch of code files, for example .c files; and this Python script will generate a single .md file with 
+You provide a folder with a bunch of code files, for example .c files; and this Python script will generate a single .md file with 
 all these files in the following format
 
     1. <first comment in file> as title 
