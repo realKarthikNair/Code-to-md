@@ -1,5 +1,7 @@
-```python
 #!/usr/bin/python3
+
+// This was used to generate md files in my Learning-C-Lang repo
+
 import os
 
 md_file=open(f"programs.md","w"); sno=1
@@ -39,4 +41,3 @@ for i in sorted(os.listdir("programs")):
         md_file.write("\n\n")
         continue
     print(f"{output_filename} saved successfully at {output_path} !")
-```
