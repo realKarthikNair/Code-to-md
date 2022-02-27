@@ -1,6 +1,5 @@
 #!/usr/bin/python3
-
-// This was used to generate md files in my Learning-C-Lang repo
+#This was used to generate md files in my Learning-C-Lang repo
 
 import os
 
