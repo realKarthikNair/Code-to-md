@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 
-# os for paths, sys for command line argsa
+# os for paths, sys for command line args
 import os, sys
 
 # find type of OS and return default user directory
