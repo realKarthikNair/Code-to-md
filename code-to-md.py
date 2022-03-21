@@ -109,7 +109,7 @@ def generate_md():
                     j+=1
             elif ext=='.c':
                 while True:
-                    title=f"### {data[j]}"; line_1=f"### {sno}. {data[j]}"
+                    title=f"### {data[j]}"; line_1=f"### {sno}. {data[j][2:]}"
                     if data[0][0:2]=='//' and j==0:
                         md_file.write(line_1); sno+=1
                     elif data[0][0:2]=="/*" and j==0:
