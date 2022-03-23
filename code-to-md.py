@@ -83,11 +83,13 @@ def generate_md():
         try:
             if ext=='.py':
                 while True:
-                    title=f"### {data[j]}"; line_1=f"### {sno}. {data[j]}"
+                    title=f"### {data[j]}"
                     if data[0][0]=='#' and j==0:
+                        line_1=f"### {sno}. {data[j][1:]}"
                         md_file.write(line_1)
                         sno+=1
                     elif data[0][0:3] in ['"""', "'''" ] and j==0:
+                        line_1=f"### {sno}. {data[j][3:]}"
                         md_file.write(line_1)
                         flag=True
                         sno+=1
