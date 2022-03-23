@@ -17,7 +17,7 @@ and so on with next file and so on and so on and.... (RIP Engish)
 
 ### Why?
 
-**To automate stuff like [this](https://github.com/realKarthikNair/Learning-C-Lang/tree/main/Learning_C/5.%20Loops/1.%20For%20loops/programs0/readme.md), for example.**
+**To automate stuff like [this](https://github.com/realKarthikNair/Learning-C-Lang/blob/main/Learning_C/F.%20Loops/1.%20For%20loops/programs0/readme.md), for example.**
 
 ### How to use (incase you didn't figure out)
 
@@ -55,7 +55,7 @@ I haven't tested the code on Windows, so I am not sure if [passing arguments](#u
 ### Features
 
 - Supports 2 Languages (Python and C) + can be extended for any other language with a few lines of code
-- Really helpful if you need to create something like [this](https://github.com/realKarthikNair/Learning-C-Lang/tree/main/Learning_C/5.%20Loops/1.%20For%20loops/programs0/readme.md) frequently
+- Really helpful if you need to create something like [this](https://github.com/realKarthikNair/Learning-C-Lang/blob/main/Learning_C/F.%20Loops/1.%20For%20loops/programs0/readme.md) frequently
 
 ### Why not use [code_to_md](https://github.com/Dinex-dev/code_to_md) itself instead of making the same thing again from scratch in python?
 
