@@ -90,7 +90,7 @@ def generate_md():
                         sno+=1
                     elif data[0][0:3] in ['"""', "'''" ] and j==0:
                         
-                        # Check for ending quotes here too, also in C's case
+################################### Check for ending quotes here too, also in C's case
                         
                         line_1=f"### {sno}. {data[j][3:]}"
                         md_file.write(line_1)
