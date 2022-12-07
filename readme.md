@@ -2,71 +2,41 @@
 
 *inspired by [code_to_md](https://github.com/Dinex-dev/code_to_md) by @Dinex-dev*
 
-### So What is it?
 
-You provide a folder with a bunch of code files, for example .c files; and this Python script will generate a single .md file with 
-all these files in the following format
+## **Generate a markdown file from a folder of programs, each program numbered with the first comment as title and the rest as code block**
 
-    1. <first comment in file> as title 
-    The rest as code block
+### **1. Why?**
+
+#### To automate stuff like [this](https://github.com/realKarthikNair/Learning-C-Lang/blob/main/Learning_C/F.%20Loops/1.%20For%20loops/programs0/readme.md), for example.
+
+### **2. How to set-up**
+
+Method 1: Clone the repo
+
+        git clone https://github.com/realKarthikNair/Code-to-md
+        cd Code-to-md
+
+
+Method 2: [Download zip](https://github.com/realKarthikNair/Code-to-md/archive/refs/heads/main.zip) and extract it
+
+
+### **3. Usage**
+
+    ./code-to-md.py -idir <path-to-code-directory> -e <extension> -odir <md-file-destination> -o <md-filename>
+
+for example, 
     
-    2. <first comment in file> as title
-    The rest as code block
+    ./code-to-md.py -idir /home/karthik/Temp/python/new/programs/ -e .py -odir /home/karthik/Temp/python/ -o programs.md
 
-and so on with next file and so on and so on and.... (RIP Engish)
+> The script also has a CLI-based interface, so you can even skip entering path as shell arguments
 
-### Why?
+> The default code directory is \<current working directory\>/programs/ and the default output directory is \<current working directory\>/
 
-**To automate stuff like [this](https://github.com/realKarthikNair/Learning-C-Lang/blob/main/Learning_C/F.%20Loops/1.%20For%20loops/programs0/readme.md), for example.**
+> I personally have this script placed at /usr/local/bin so that I can use it from anywhere
 
-### How to use (incase you didn't figure out)
+> Okay so that's it: Enjoy!
 
-##### Method 1 (for terminal lovers <3)
-
-###### 1. **On Linux and MacOS (prolly on other unix derivatives too)**
-
-    git clone https://github.com/realKarthikNair/Code-to-md
-    cd Code-to-md
-    chmod +x code-to-md.py
-
-###### Usage
-The script actually has a CLI based user interface as well if you run as `./code-to-md.py` or `python3 code-to-md-py` but if you want to give the path as arguments, here is how:
-
-    ./code-to-md.py "<code-files-path>" "<extension>" "<md-file-destination>" "<md-filename>"
-    # eg ./code-to-md.py "/home/karthik/karthik/Learning-C-Lang/While loops/programs" ".c" "/home/karthik/karthik/mdtest" "code.md"
-
-###### 2. **On Microsoft Windows**
-
-    git clone https://github.com/realKarthikNair/Code-to-md
-    cd Code-to-md
-    
-###### Usage (CLI based interface)
-
-    python code-to-md.py
-
-I haven't tested the code on Windows, so I am not sure if [passing arguments](#usage) works on the platform
-
-##### Method 2 (for others)
-
-1. Download [this](https://github.com/realKarthikNair/Code-to-md/archive/refs/heads/main.zip)
-2. Unzip it and go to the unzipped folder
-3. Run the main.py file
-
-### Features
-
-- Supports 2 Languages (Python and C) + can be extended for any other language with a few lines of code
-- Really helpful if you need to create something like [this](https://github.com/realKarthikNair/Learning-C-Lang/blob/main/Learning_C/F.%20Loops/1.%20For%20loops/programs0/readme.md) frequently
-
-### Why not use [code_to_md](https://github.com/Dinex-dev/code_to_md) itself instead of making the same thing again from scratch in python?
-
-~~Because I suck at bash and python is love~~
-
-1. Bash isn't really cross-platform (e.g., Windows)
-2. You tell me, I will add 'm
-
-### Okay so that's it: Enjoy!
-
-### How to reach me?
+### **4. How to reach me?**
 
 <p align="left">
     <a href="https://www.instagram.com/karthiknair.sh" alt="instagram">
