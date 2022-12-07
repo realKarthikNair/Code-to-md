@@ -4,20 +4,20 @@
 import os, sys
 
 # find type of OS and return default user directory
-def default_path(platform):
+# def default_path(platform):
 
-    if platform=="nt":
-        return os.environ['USERPROFILE']
+#     if platform=="nt":
+#         return os.environ['USERPROFILE']
 
-    else:
-        return os.environ['HOME']
+#     else:
+#         return os.environ['HOME']
         
 
 # fetch path from user for input and output files' location
 def getpath(prompt, arg):
     
     # set default path incase user skips path
-    default = default_path(os.name)
+    default = os.getcwd()
 
     #if path entered by user exists, return the path; if input is empty or invalid, return default path
     try:
@@ -29,6 +29,8 @@ def getpath(prompt, arg):
             raise Exception
         return path
     except:
+        if arg==1:
+            default=os.path.join(default, "programs")
         print(f'''Input skipped or entered path is invalid! 
         Choosing {default} as the path...''')
         return default
@@ -42,10 +44,10 @@ and do for all code files in that directory
 '''
 def generate_md():
 
-    default = default_path(os.name)
+    default = os.getcwd()
 
     input_prompt=(f'''Enter directory path where files exist
-    Skipping would choose {default}
+    Skipping would choose {os.path.join(default, "programs")}
     Enter here >  ''')
 
     input_path=getpath(input_prompt, 1)
@@ -53,8 +55,11 @@ def generate_md():
     try:
         ext=sys.argv[2]
     except:
-        ext=input('''Enter file extension to be considered (.c or .py)
+        default_extension=".py"
+        ext=input(f'''Enter file extension to be considered (.c or .py)
+        Default is {default_extension}
         Enter here >  ''')
+        if ext=="": ext=default_extension
 
     files=[]
     for i in sorted(os.listdir(input_path)):
@@ -69,8 +74,11 @@ def generate_md():
     try:
         output_filename=sys.argv[4]
     except:
-        output_filename=input('''Enter filename to be saved (e.g. programs.md) 
+        default_filename="programs.md"
+        output_filename=input(f'''Enter filename to be saved (e.g. programs.md) 
+        Skip to choose the default filename as {default_filename}
         Enter here > ''')
+        if output_filename=="": output_filename=default_filename
         
     output_path=getpath(output_prompt, 3)
 
