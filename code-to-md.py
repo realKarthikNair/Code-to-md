@@ -1,39 +1,7 @@
 #!/usr/bin/python3
 
 # os for paths, sys for command line args
-import os, sys
-
-# find type of OS and return default user directory
-# def default_path(platform):
-
-#     if platform=="nt":
-#         return os.environ['USERPROFILE']
-
-#     else:
-#         return os.environ['HOME']
-        
-
-# fetch path from user for input and output files' location
-def getpath(prompt, arg):
-    
-    # set default path incase user skips path
-    default = os.getcwd()
-
-    #if path entered by user exists, return the path; if input is empty or invalid, return default path
-    try:
-        try:
-            path=sys.argv[arg]
-        except:
-            path=input(f'''{prompt}''')
-        if not os.path.exists(path):
-            raise Exception
-        return path
-    except:
-        if arg==1:
-            default=os.path.join(default, "programs")
-        print(f'''Input skipped or entered path is invalid! 
-        Choosing {default} as the path...''')
-        return default
+import os, sys, argparse
 
 ''' Read files and generate md file in the format
 
@@ -42,6 +10,7 @@ The rest as code block'
 
 and do for all code files in that directory
 '''
+
 def generate_md():
 
     default = os.getcwd()
@@ -50,37 +19,56 @@ def generate_md():
     Skipping would choose {os.path.join(default, "programs")}
     Enter here >  ''')
 
-    input_path=getpath(input_prompt, 1)
+    if args.input_dir and os.path.exists(args.input_dir):
+        input_path=args.input_dir
+    else:
+        input_path=input(f'''{input_prompt}''')
+        if not os.path.exists(input_path):
+            input_path=os.path.join(default, "programs")
+            print(f'''Input skipped or entered path is invalid! 
+            Choosing {input_path} as the path...''')
 
-    try:
-        ext=sys.argv[2]
-    except:
+    ext=args.extension
+    if not ext or ext not in ['.py', '.c', '.cpp']:
         default_extension=".py"
-        ext=input(f'''Enter file extension to be considered (.c or .py)
+        ext=input(f'''Enter file extension to be considered (.c .cpp or .py)
         Default is {default_extension}
         Enter here >  ''')
-        if ext=="": ext=default_extension
+        if ext=="":
+            print(f'''Input skipped!
+            Choosing {default_extension} as the extension...''')
+            ext=default_extension
 
     files=[]
     for i in sorted(os.listdir(input_path)):
         if i.endswith(ext):
             files.append(i)
-    
 
     output_prompt=(f'''Enter folder path to save md file
         Skip to choose the default path as {default}
         Enter here > ''')
 
-    try:
-        output_filename=sys.argv[4]
-    except:
+    if args.output and os.path.exists(args.output):
+        output_path=args.output
+    else:
+        output_path=input(f'''{output_prompt}''')
+        if not os.path.exists(output_path):
+            output_path=default
+            print(f'''Input skipped or entered path is invalid! 
+            Choosing {output_path} as the path...''')
+
+    if args.filename:
+        output_filename=args.filename
+    else:
         default_filename="programs.md"
         output_filename=input(f'''Enter filename to be saved (e.g. programs.md) 
         Skip to choose the default filename as {default_filename}
         Enter here > ''')
-        if output_filename=="": output_filename=default_filename
-        
-    output_path=getpath(output_prompt, 3)
+        if output_filename=="":
+            print(f'''Input skipped!
+            Choosing {default_filename} as the filename...''')
+            output_filename=default_filename
+    
 
     #create md file
     md_file=open(os.path.join(output_path,output_filename), "w"); sno=1
@@ -120,7 +108,7 @@ def generate_md():
                         else:
                             md_file.write(f"{data[j]}\n```")
                     j+=1
-            elif ext=='.c':
+            elif ext=='.c' or ext=='.cpp':
                 while True:
                     title=f"### {data[j]}"; line_1=f"### {sno}. {data[j][2:]}"
                     if data[0][0:2]=='//' and j==0:
@@ -150,6 +138,13 @@ def generate_md():
             continue
     return f"{output_filename} saved successfully at {output_path} !"
     
+parser=argparse.ArgumentParser(description="Create a single md file from a directory full of code files!")
+parser.add_argument("-idir","--input_dir", help="Directory path where the code files exist")
+parser.add_argument("-e","--extension", help="File extension to be considered (.c .cpp or .py)")
+parser.add_argument("-odir","--output", help="Directory path to save the md file")
+parser.add_argument("-o","--filename", help="Filename to be saved (e.g. programs.md)")
+args=parser.parse_args()
+
 stats=generate_md()
 
 print(stats)
