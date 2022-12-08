@@ -136,14 +136,20 @@ def generate_md(d=False):
             md_file.write("\n\n")
             continue
     return f"{output_filename} saved successfully at {output_path} !"
-    
+
+print("<<< code-to-md by realkarthiknair >>>")
 parser=argparse.ArgumentParser(description="Create a single md file from a directory full of code files!")
 parser.add_argument("-idir","--input_dir", help="Directory path where the code files exist")
 parser.add_argument("-e","--extension", help="File extension to be considered (.c .cpp or .py)")
 parser.add_argument("-odir","--output", help="Directory path to save the md file")
 parser.add_argument("-o","--filename", help="Filename to be saved (e.g. programs.md)")
 parser.add_argument("-d","--default", help="Use default values", action="store_true")
+parser.add_argument("-v","--version", help="Show version", action="store_true")
 args=parser.parse_args()
+
+if args.version:
+    print("code-to-md v1.0.0")
+    exit()
 
 if args.default:
     stats=generate_md(d=True)
