@@ -22,50 +22,52 @@ def return_path(arg, default, prompt):
             return default
         else: return path    
 
-def generate_md():
+def generate_md(d=False):
 
-    default = os.getcwd()
+    default = output_path = os.getcwd()
+    default_filename=output_filename="programs.md"
+    ext= default_extension=".py"
+    input_path=os.path.join(default, "programs")
 
-    input_prompt=('''Enter directory path where files exist
-    Skipping would choose ''')
+    if not d:
 
-    input_path=return_path(args.input_dir, os.path.join(default, "programs"), input_prompt) # hope this works :D
+        input_prompt=('''Enter directory path where files exist
+        Skipping would choose ''')
 
-    ext=args.extension
-    if not ext or ext not in ['.py', '.c', '.cpp']:
-        default_extension=".py"
-        ext=input(f'''Enter file extension to be considered (.c .cpp or .py)
-        Default is {default_extension}
-        Enter here >  ''')
-        if ext=="":
-            print(f'''Input skipped!
-            Choosing {default_extension} as the extension...''')
-            ext=default_extension
+        input_path=return_path(args.input_dir, input_path, input_prompt) # hope this works :D
 
+        ext=args.extension
+        if not ext or ext not in ['.py', '.c', '.cpp']:
+            ext=input(f'''Enter file extension to be considered (.c .cpp or .py)
+            Default is {default_extension}
+            Enter here >  ''')
+            if ext=="":
+                print(f'''Input skipped!
+                Choosing {default_extension} as the extension...''')
+                ext=default_extension
+
+        
+        output_prompt=('''Enter folder path to save md file
+            Skip to choose the default path as ''')
+
+        output_path=return_path(args.output, default, output_prompt)
+
+        if args.filename:
+            output_filename=args.filename
+        else:
+            output_filename=input(f'''Enter filename to be saved (e.g. programs.md) 
+            Skip to choose the default filename as {default_filename}
+            Enter here > ''')
+            if output_filename=="":
+                print(f'''Input skipped!
+                Choosing {default_filename} as the filename...''')
+                output_filename=default_filename
+    
     files=[]
     for i in sorted(os.listdir(input_path)):
         if i.endswith(ext):
             files.append(i)
 
-    output_prompt=('''Enter folder path to save md file
-        Skip to choose the default path as ''')
-
-    output_path=return_path(args.output, default, output_prompt)
-
-    if args.filename:
-        output_filename=args.filename
-    else:
-        print("yes")
-        default_filename="programs.md"
-        output_filename=input(f'''Enter filename to be saved (e.g. programs.md) 
-        Skip to choose the default filename as {default_filename}
-        Enter here > ''')
-        if output_filename=="":
-            print(f'''Input skipped!
-            Choosing {default_filename} as the filename...''')
-            output_filename=default_filename
-        print(output_path)
-    
 
     #create md file
     md_file=open(os.path.join(output_path,output_filename), "w"); sno=1
@@ -140,8 +142,12 @@ parser.add_argument("-idir","--input_dir", help="Directory path where the code f
 parser.add_argument("-e","--extension", help="File extension to be considered (.c .cpp or .py)")
 parser.add_argument("-odir","--output", help="Directory path to save the md file")
 parser.add_argument("-o","--filename", help="Filename to be saved (e.g. programs.md)")
+parser.add_argument("-d","--default", help="Use default values", action="store_true")
 args=parser.parse_args()
 
-stats=generate_md()
+if args.default:
+    stats=generate_md(d=True)
+else:
+    stats=generate_md()
 
 print(stats)
