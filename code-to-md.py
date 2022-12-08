@@ -10,23 +10,26 @@ The rest as code block'
 
 and do for all code files in that directory
 '''
+def return_path(arg, default, prompt):
+    if arg and os.path.exists(arg):
+        return arg
+    else:
+        path=input(f'''{prompt} {default}
+        Enter here >  ''')
+        if not os.path.exists(path):
+            print(f'''Input skipped or entered path is invalid! 
+            Choosing {default} as the path...''')
+            return default
+        else: return path    
 
 def generate_md():
 
     default = os.getcwd()
 
-    input_prompt=(f'''Enter directory path where files exist
-    Skipping would choose {os.path.join(default, "programs")}
-    Enter here >  ''')
+    input_prompt=('''Enter directory path where files exist
+    Skipping would choose ''')
 
-    if args.input_dir and os.path.exists(args.input_dir):
-        input_path=args.input_dir
-    else:
-        input_path=input(f'''{input_prompt}''')
-        if not os.path.exists(input_path):
-            input_path=os.path.join(default, "programs")
-            print(f'''Input skipped or entered path is invalid! 
-            Choosing {input_path} as the path...''')
+    input_path=return_path(args.input_dir, os.path.join(default, "programs"), input_prompt) # hope this works :D
 
     ext=args.extension
     if not ext or ext not in ['.py', '.c', '.cpp']:
@@ -44,22 +47,15 @@ def generate_md():
         if i.endswith(ext):
             files.append(i)
 
-    output_prompt=(f'''Enter folder path to save md file
-        Skip to choose the default path as {default}
-        Enter here > ''')
+    output_prompt=('''Enter folder path to save md file
+        Skip to choose the default path as ''')
 
-    if args.output and os.path.exists(args.output):
-        output_path=args.output
-    else:
-        output_path=input(f'''{output_prompt}''')
-        if not os.path.exists(output_path):
-            output_path=default
-            print(f'''Input skipped or entered path is invalid! 
-            Choosing {output_path} as the path...''')
+    output_path=return_path(args.output, default, output_prompt)
 
     if args.filename:
         output_filename=args.filename
     else:
+        print("yes")
         default_filename="programs.md"
         output_filename=input(f'''Enter filename to be saved (e.g. programs.md) 
         Skip to choose the default filename as {default_filename}
@@ -68,6 +64,7 @@ def generate_md():
             print(f'''Input skipped!
             Choosing {default_filename} as the filename...''')
             output_filename=default_filename
+        print(output_path)
     
 
     #create md file
