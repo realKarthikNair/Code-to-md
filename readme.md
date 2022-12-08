@@ -28,6 +28,10 @@ for example,
     
     ./code-to-md.py -idir /home/karthik/Temp/python/new/programs/ -e .py -odir /home/karthik/Temp/python/ -o programs.md
 
+To choose \<current directory/programs\> as code dir and \<current directory\> as markdown location without any further prompts
+
+    ./code-to-md.py -d
+
 > The script also has a CLI-based interface, so you can even skip entering path as shell arguments
 
 > The default code directory is \<current working directory\>/programs/ and the default output directory is \<current working directory\>/
