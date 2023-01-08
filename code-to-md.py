@@ -97,8 +97,10 @@ def generate_md(d=False):
                         sno+=1
                     elif flag==True:
                         if data[j][-4:-1] in ['"""', "'''" ]:
+                            md_file.write(title[0:-4]+"\n")    
                             flag=False
-                        md_file.write(title)
+                        else:    
+                            md_file.write(title)
                     else:
                         if (first!=True) and (j!=(len(data)-1)): md_file.write(f"{data[j]}")
                         elif first==True:
@@ -122,8 +124,10 @@ def generate_md(d=False):
                         sno+=1
                     elif flag==True:
                         if data[j][-3:-1]=="*/":
+                            md_file.write(title[0:-3]+"\n")    
                             flag=False
-                        md_file.write(title)
+                        else:    
+                            md_file.write(title)
                     else:
                         if (first!=True) and (j!=(len(data)-1)): md_file.write(f"{data[j]}")
                         elif first==True:
