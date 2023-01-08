@@ -7,7 +7,7 @@
 
 ### **1. Why?**
 
-#### To make generate a file like [this](https://github.com/realKarthikNair/Learning-C-Lang/blob/main/Learning_C/F.%20Loops/1.%20For%20loops/programs0/readme.md) from a directory filled with programs.
+#### To generate a file like [this](https://github.com/realKarthikNair/Learning-C-Lang/blob/main/Learning_C/F.%20Loops/1.%20For%20loops/programs0/readme.md) from a directory filled with programs.
 
 ### **2. How to set-up**
 
