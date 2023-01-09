@@ -46,12 +46,14 @@ def generate_md(d=False):
                 Choosing {default_extension} as the extension...''')
                 ext=default_extension
 
-        
-        output_prompt=('''Enter folder path to save md file
+        print(output_prompt)
+        if not output_prompt:
+            output_prompt=('''Enter folder path to save md file
             Skip to choose the default path as ''')
 
         output_path=return_path(args.output, default, output_prompt)
 
+        print(f"{args.filename} is args.filename")
         if args.filename:
             output_filename=args.filename
         else:

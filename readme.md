@@ -1,6 +1,6 @@
 # **Code-to-md**
 
-*inspired by [code_to_md](https://github.com/Dinex-dev/code_to_md) by @Dinex-dev*
+*inspired from [code_to_md](https://github.com/Dinex-dev/code_to_md) by @Dinex-dev*
 
 
 ## **Generate a markdown file from a folder of programs, each program numbered with the first comment as title and the rest as code block**
