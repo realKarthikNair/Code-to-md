@@ -157,12 +157,14 @@ parser.add_argument("-v","--version", help="Show version", action="store_true")
 args=parser.parse_args()
 
 
-
 if args.version:
     print("code-to-md v1.0.2")
     exit()
 
 if args.default:
+    if not len({i:j for i,j in vars(args).items() if j==True})>1:
+        print('''The program doesn't accept any other arguments with --default
+        Any other options will be ignored''')
     stats=generate_md(d=True)
 else:
     stats=generate_md()
