@@ -152,7 +152,7 @@ parser.add_argument("-v","--version", help="Show version", action="store_true")
 args=parser.parse_args()
 
 if args.version:
-    print("code-to-md v1.0.0")
+    print("code-to-md v1.0.2")
     exit()
 
 if args.default:
