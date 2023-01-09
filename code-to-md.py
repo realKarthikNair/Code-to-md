@@ -158,7 +158,7 @@ args=parser.parse_args()
 
 
 if args.version:
-    print("code-to-md v1.0.2")
+    print("code-to-md v1.1.0")
     exit()
 
 if args.default:
