@@ -28,6 +28,11 @@ def generate_md(d=False):
     default_filename=output_filename="programs.md"
     ext= default_extension=".py"
     input_path=os.path.join(default, "programs")
+    if not os.path.exists(input_path):
+        print(f'''{input_path} does not exist!
+        Please make sure you have an input directory''')
+        exit()
+
 
     if not d:
 
@@ -46,14 +51,12 @@ def generate_md(d=False):
                 Choosing {default_extension} as the extension...''')
                 ext=default_extension
 
-        print(output_prompt)
-        if not output_prompt:
-            output_prompt=('''Enter folder path to save md file
+        
+        output_prompt=('''Enter folder path to save md file
             Skip to choose the default path as ''')
 
         output_path=return_path(args.output, default, output_prompt)
 
-        print(f"{args.filename} is args.filename")
         if args.filename:
             output_filename=args.filename
         else:
@@ -152,6 +155,8 @@ parser.add_argument("-o","--filename", help="Filename to be saved (e.g. programs
 parser.add_argument("-d","--default", help="Use default values", action="store_true")
 parser.add_argument("-v","--version", help="Show version", action="store_true")
 args=parser.parse_args()
+
+
 
 if args.version:
     print("code-to-md v1.0.2")
