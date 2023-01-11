@@ -96,6 +96,9 @@ def generate_md(d=False):
                         md_file.write(line_1)
                         flag=True
                         sno+=1
+                        if data[j][-4:-1] in ['"""', "'''" ]:
+                            flag=False
+                        
                     # if there is no comment in the first line, use the file name as the title
                     elif j==0:
                         md_file.write(f"### {sno}. {i}\n")
@@ -123,6 +126,8 @@ def generate_md(d=False):
                         md_file.write(line_1)
                         flag=True
                         sno+=1
+                        if data[j][-3:-1]=="*/":    
+                            flag=False
                     # if there is no comment in the first line, use the file name as the title
                     elif j==0:
                         md_file.write(f"### {sno}. {i}\n")
