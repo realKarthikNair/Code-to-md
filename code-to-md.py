@@ -167,7 +167,7 @@ if args.version:
     exit()
 
 if args.default:
-    if not len({i:j for i,j in vars(args).items() if j==True})>1:
+    if len({i:j for i,j in vars(args).items() if j==True})>1:
         print('''The program doesn't accept any other arguments with --default
         Any other options will be ignored''')
     stats=generate_md(d=True)
